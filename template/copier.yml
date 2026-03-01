@@ -1,0 +1,28 @@
+project_name:
+  type: str
+  help: What is your project name?
+
+project_description:
+  type: str
+  help: Describe your project in a few sentences.
+
+_message_after_copy: |
+  Your project "{{ project_name }}" has been created successfully!
+
+  Next steps:
+
+  1. Change directory to the project root:
+
+      $ cd {{ project_name }}
+
+  2. Install tools 
+  - justfile
+  - uv
+
+  3. Install dependencies:
+
+      $ uv sync
+
+  4. Start developing your project!
+
+      $ just dev

@@ -1,6 +1,8 @@
 
 # Clean Architecture Template for FastAPI Applications
 
+[![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-orange.json)](https://github.com/copier-org/copier)
+
 This template provides a clean and well-structured foundation for building FastAPI applications using Clean Architecture principles. It clearly separates business logic, use cases, infrastructure, and the API layer to ensure maintainability, testability, and scalability. With an explicit project structure and built-in testing strategy, it serves as a solid starting point for developing professional and production-ready backends.
 
 ## Requirements
