@@ -1,6 +1,6 @@
 [project]
 name = "create-clean-archi-fastapi"
-version = "0.1.5"
+version = "0.1.6"
 description = "A CLI tool to create a FastAPI project with a clean architecture template."
 readme = "README.md"
 requires-python = ">=3.12"
