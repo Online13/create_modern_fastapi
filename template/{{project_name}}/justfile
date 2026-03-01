@@ -19,3 +19,17 @@ test-coverage:
 
 test-clean:
     uv run pytest tests/clean
+
+# migration -----------------------------------------------------
+
+check:
+    alembic check
+
+makemigration comment:
+    alembic revision --autogenerate -m "{{comment}}"
+
+migrate:
+    alembic upgrade head
+
+logmigration:
+    alembic history --verbose
