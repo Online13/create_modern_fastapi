@@ -3,10 +3,23 @@ _subdirectory: template
 project_name:
   type: str
   help: What is your project name?
+  default: "{{ project_name|lower|replace('-', '_')|replace(' ', '_') }}"
 
 project_description:
   type: str
   help: Describe your project in a few sentences.
+
+version:
+  type: str
+  default: "0.1.0"
+
+author_name:
+  type: str
+  help: Author name
+
+author_email:
+  type: str
+  help: Author email
 
 _message_after_copy: |
   Your project "{{ project_name }}" has been created successfully!
@@ -30,4 +43,7 @@ _message_after_copy: |
       $ just dev
 
 _tasks:
-  - "git init"
+  - cd "{{ project_name }}" && git init
+  - cd "{{ project_name }}" && git branch -M main
+  - cd "{{ project_name }}" && git add .
+  - cd "{{ project_name }}" && git commit -m "Initial commit"
