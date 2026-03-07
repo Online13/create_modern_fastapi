@@ -1,7 +1,7 @@
 
 # Clean Architecture Template for FastAPI Applications
 
-![SQLModel](https://img.shields.io/badge/version-0.1.6-black)
+![SQLModel](https://img.shields.io/badge/version-0.1.9-black)
 [![Copier](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/copier-org/copier/master/img/badge/badge-grayscale-inverted-border-orange.json)](https://github.com/copier-org/copier)
 ![SQLModel](https://img.shields.io/badge/ORM-SQLModel-blue)
 
