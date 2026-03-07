@@ -19,14 +19,12 @@ class Database:
             cls.instance = database
 
     def __init__(self, database_url: str):
-        self.engine = create_async_engine(
-            database_url,
-            echo=False
-        )
+        self.engine = create_async_engine(database_url, echo=False)
         Database.set(self)
 
     async def create_tables(self):
         from src.infrastructure.database import models
+
         async with self.engine.begin() as conn:
             print("Creating tables...")
             await conn.run_sync(SQLModel.metadata.create_all)
@@ -36,15 +34,18 @@ class Database:
             print("Dropping tables...")
             await conn.run_sync(SQLModel.metadata.drop_all)
 
-    async def get_db_session(self) -> AsyncGenerator[AsyncSession, None]:
-        async_session = async_sessionmaker(
-            bind=self.engine, class_=AsyncSession, expire_on_commit=False
-        )
-        async with async_session() as session:
-            yield session
-
     async def seed(self):
-        gen = self.get_db_session()
+        gen = get_db_session()
         session = await anext(gen)
         app_data_seed = AppDataSeed(session)
         await app_data_seed.seed()
+
+async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
+    db = Database.instance
+    if db is None:
+        raise Exception("Database instance is not set.")
+    async_session = async_sessionmaker(
+        bind=db.engine, class_=AsyncSession, expire_on_commit=False
+    )
+    async with async_session() as session:
+        yield session
