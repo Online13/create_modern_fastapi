@@ -1,5 +1,5 @@
 [project]
-name = "create-fastapi-app"
+name = "create-modern-fastapi"
 version = "0.1.9"
 description = "A CLI tool to create a FastAPI project."
 readme = "README.md"
@@ -9,4 +9,4 @@ dependencies = []
 
 [project.scripts]
 
-create-fastapi-app = "create_fastapi_app.__main__:main"
+create-modern-fastapi = "create_modern_fastapi.__main__:main"
