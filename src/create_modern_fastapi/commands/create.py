@@ -60,7 +60,7 @@ def create_template(
         Exception: If template source doesn't exist or operations fail
     """
     # Get the template source directory (relative to this package)
-    template_source = Path(__file__).parent.parent.parent.parent / "template"
+    template_source = Path(__file__).parent.parent / "template"
 
     if not template_source.exists():
         raise Exception(f"Template source not found: {template_source}")
